@@ -1,10 +1,8 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/keys.h>
 
 / {
-
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -19,36 +17,33 @@
         };
     };
 
-
     keymap {
         compatible = "zmk,keymap";
 
         base {
             bindings = <
-                &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P      &kp LEFT_BRACKET
-                &hm LEFT_CONTROL A  &hm LEFT_ALT S  &hm LGUI D  &hm LEFT_SHIFT F  &kp G      &kp H      &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm LEFT_ALT L  &hm RCTRL SEMICOLON
-                &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA      &kp PERIOD      &kp SLASH
-                &kp N0      &mo 3      &kp ENTER      &kp SPACE      &kp BACKSPACE      &mo 1      &mo 2      &kp N0
+&kp Q        &kp W           &kp E                  &kp R        &kp T  &kp Y            &kp U  &kp I      &kp O       &kp P            &kp BACKSPACE
+&kp A        &kp S           &kp D                  &kp F        &kp G  &kp H            &kp J  &kp K      &kp L       &kp SQT
+&mt LSHFT Z  &kp X           &kp C                  &kp V        &kp B  &kp N            &kp M  &kp COMMA  &kp PERIOD  &mt RSHFT SLASH
+&kp N0       &kp LEFT_SHIFT  &mt LEFT_CONTROL LGUI  &lt 1 SPACE         &lt 2 BACKSPACE         &kp ENTER  &kp RSHFT   &kp N0
             >;
         };
-
 
         layer_1 {
             bindings = <
-                &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7    &kp N8    &kp N9     &kp N0     &studio_unlock
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans    &kp UP    &kp MINUS  &kp EQUAL
-                &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans
-                &kp N0   &trans  &trans  &trans  &trans  &trans    &trans &kp N0
+&kp NUMBER_1  &kp N2         &kp N3              &kp N4            &kp N5             &kp N6          &kp N7          &kp N8     &kp N9         &kp N0         &studio_unlock
+&kp TAB       &kp MINUS      &kp EQUAL           &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans          &kp UP_ARROW    &trans     &trans         &kp SEMICOLON
+&kp DELETE    &kp LS(LG(S))  &kp LC(R)           &kp K_CALC        &to 2              &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &kp PAGE_DOWN  &kp PAGE_UP
+&kp N0        &trans         &kp LC(LA(DELETE))  &trans                               &trans                          &trans     &trans         &kp N0
             >;
         };
 
-
         connectivity {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bootloader
-                &trans  &trans  &trans  &trans  &trans  &trans        &trans        &trans        &trans        &trans
-                &trans  &trans  &trans  &trans  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
-                &kp N0   &trans  &trans  &trans  &trans        &trans        &trans &kp N0
+&kp ESC       &kp BACKSPACE  &trans        &trans      &trans       &kp ASTERISK  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS     &trans
+&bt BT_SEL 1  &bt BT_SEL 2   &bt BT_SEL 3  &bt BT_CLR  &bootloader  &kp SLASH     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS
+&kp DELETE    &trans         &trans        &trans      &to 0        &kp COMMA     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ENTER
+&kp N0        &trans         &trans        &trans                   &trans                         &kp KP_NUMBER_0  &kp PERIOD       &kp N0
             >;
         };
     };
